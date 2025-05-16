@@ -1,0 +1,28 @@
+from typing import TypeVar, Generic, List
+
+K = TypeVar('K')
+
+class Vector(Generic[K]):
+	"""Vector class"""
+	data: List[K]
+	size: int
+
+	def __init__(self, data:List[K]):
+		self.data = data
+		self.size = len(data)
+
+	def __repr__(self):
+		return f"Vector: {self.data}"
+	
+	def display(self) :
+		print(self)
+
+	def getSize(self) -> int:
+		return self.size
+	
+	def add(self, second:'Vector[K]') :
+		if (self.getSize() != len(second)):
+			print(f"Can't add {second}, sizes are different.")
+			return
+		for i in range(0, self.getSize()):
+			self[i] += second[i]
