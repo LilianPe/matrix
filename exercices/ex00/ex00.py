@@ -1,12 +1,12 @@
 from Vector import Vector
-from Matrice import Matrice
+from Matrix import Matrix
 from colorama import init, Fore
 
 init(autoreset=True)
 
 def vectorTesting() :
     print(Fore.GREEN + "Testing Vectors:\n")
-    v1: Vector[int] = Vector([1, 5.0, 6])
+    v1: Vector[int] = Vector([1, 5, 6])
     v2: Vector[int] = Vector([2, 7, 5])
     invalid: Vector = Vector([7, 5])
     v1.display()
@@ -24,24 +24,38 @@ def vectorTesting() :
     print(v1)
     print("\n")
 
-def matriceTesting() :
-    print(Fore.GREEN + "Testing Matrices:\n")
-    m1: Matrice = Matrice([[1, 4, 5], [4, 2, 1], [4, 2, 1], [4, 2, 1]])
-    # bad: Matrice = Matrice([[1, 4, 5], [4, 4, 2, 1], [4, 2, 1], [4, 2, 1]])
-    m1.display()
+def matrixTesting() :
+    # init
+	print(Fore.GREEN + "Testing matrixs:\n")
+	m1: Matrix = Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+	m2: Matrix = Matrix([[9, 8, 7], [6, 5, 4], [3, 2, 1]])
+	m3: Matrix = Matrix([[8, 7], [5, 4], [2, 1]])
+	# bad: Matrix = Matrix([[1, 4, 5], [4, 4, 2, 1], [4, 2, 1], [4, 2, 1]])
+	print("m1:")
+	m1.display()
+	print("m2:")
+	m2.display()
+	print("m3:")
+	m3.display()
+
+	print(Fore.GREEN + "Tests add")
+	m1.add(m2)
+	m1.display()
+	m1.add(m3)
+	print(Fore.GREEN + "\nTest sub")
+	m1.sub(m2)
+	m1.display()
+	m1.sub(m3)
+	print(Fore.GREEN + "\nTest scl")
+	m1.scl(2)
+	m1.display()
+	m1.scl(m2)
 
 def main() -> None :
     """entrypoint of the program"""
     vectorTesting()
-    matriceTesting()
+    matrixTesting()
 
 
 if __name__ == "__main__":
     main()
-
-# Enlever les protection type:
-# if (type(scalar) != type(self.matrice[0][0])) :
-# 			print(Fore.RED + "Invalid scalar, not the same type than the matrice elements.")
-# 			return False
-
-# Remplacer partout par des try except, et faire crash le programme plutot que juste mettre un message d'erreure

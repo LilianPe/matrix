@@ -28,6 +28,9 @@ class Vector(Generic[K]):
 		"""Overload for Vector[i] = """
 		self.data[index] = value
 
+	def copy(self) -> 'Vector' :
+		return Vector(self.data.copy())
+
 	def display(self) -> None :
 		"""display the vector and his size"""
 		print(f"Vector: {self}")
