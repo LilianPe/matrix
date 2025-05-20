@@ -17,4 +17,4 @@ fclean:
 
 re: fclean all
 
-.PHONY: all fclean re
+.PHONY: all fclean re .venv
