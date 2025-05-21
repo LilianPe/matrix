@@ -135,3 +135,11 @@ class Matrix(Generic[K]):
 			trace += self[i][i]
 		return trace
 
+	def transpose(self) -> 'Matrix[K]':
+		newMatrice: List[List[K]] = []
+		for j in range(0, self.getSize()[1]):
+			row: List[K] = []
+			for i in range(0, self.getSize()[0]):
+				row.append(self[i][j])
+			newMatrice.append(row)
+		return Matrix(newMatrice)
